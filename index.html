@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bgtheme</title>
+</head>
+<body>
+    <style>
+        html:not(.dark) {
+            background-color: #fff;
+        }
+        html.dark {
+            background-color: #3c3c3c;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $('html').click(function() {
+            $(this).toggleClass('dark')
+        })
+
+        $(document).ready(function(){
+            var theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            console.log("Color scheme: " + theme);
+            
+            // 例: ダークモードの場合、何かを実行する
+            if (theme === 'dark') {
+                $('html').addClass('dark')
+            }
+        });
+    </script>
+</body>
+</html>
